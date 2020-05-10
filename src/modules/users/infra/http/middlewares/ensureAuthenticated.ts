@@ -4,7 +4,7 @@ import { verify } from 'jsonwebtoken';
 import authConfig from '@config/auth';
 import AppError from '@shared/errors/AppError';
 
-interface TokenPayload {
+interface ITokenPayload {
     iat: number;
     exp: number;
     sub: string;
@@ -26,7 +26,7 @@ export default function ensureAuthenticated(
     try {
         const decoded = verify(token, authConfig.jwt.secret);
 
-        const { sub } = decoded as TokenPayload; // Forçar tipo da variável
+        const { sub } = decoded as ITokenPayload; // Forçar tipo da variável
 
         request.user = {
             id: sub,
