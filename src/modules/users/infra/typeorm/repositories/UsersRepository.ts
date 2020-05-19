@@ -43,6 +43,7 @@ class UsersRepository implements IUsersRepository {
                 },
             });
         } else {
+            console.log('aqui');
             users = await this.ormRepository.find();
         }
 

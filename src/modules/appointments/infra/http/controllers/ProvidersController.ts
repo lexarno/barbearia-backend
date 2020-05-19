@@ -8,7 +8,7 @@ export default class ProvidersController {
         request: Request,
         response: Response,
     ): Promise<Response> {
-        const { user_id } = request.user.id;
+        const user_id = request.user.id;
 
         const listProviders = container.resolve(ListProvidersService);
 
